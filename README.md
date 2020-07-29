@@ -4,7 +4,7 @@ In diesem Dokument ist noch einmal alles Wichtige kurz erklärt.
 
 Für die volle Funktionalität der Progressive Web App muss ein aktueller Browser verwendet werden: Google Chrome Version 83 oder aktueller.
 
-Das Projekt enthält Informationen bezüglich der Schnittstellen zu Firebase und Google. Diese können bei Missbrauch Kosten verursachen. Deswegen darf dieses Projekt nicht ohne Absprache an unbeteiligte Personen weitergegeben werden.
+**Der Firebase Cloud Firestore Service ist nicht mehr aktiv.**
 
 ## Installation
 
