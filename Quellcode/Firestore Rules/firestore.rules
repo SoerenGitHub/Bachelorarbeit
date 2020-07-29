@@ -1,0 +1,186 @@
+rules_version = '2';
+service cloud.firestore {
+
+  match /databases/{database}/documents {
+  
+  	function isUser() {
+    	return	request.auth.uid != null
+      &&			exists(/databases/$(database)/documents/users/$(request.auth.uid));
+    }
+    match /pushEndpoint/{userId} {
+    
+    	function isOwner() {
+      	return request.auth.uid == userId;
+      }
+      
+      allow delete: 
+      	if isOwner();
+        
+      allow create:
+      	if isOwner();
+    }
+  
+    match /users/{userId} {
+    
+    	function isOwner() {
+      	return request.auth.uid == userId;
+      }
+      
+      function isFriend() {
+      	return exists(/databases/$(database)/documents/users/$(userId)/friends/$(request.auth.uid));
+      }
+      
+      function userDataValid() {
+					return	request.resource.data.keys().size() == 1
+          &&			request.resource.data.keys().hasAll(['publicInfo'])
+          &&			request.resource.data.publicInfo.keys().size() == 3
+          &&			request.resource.data.publicInfo.keys().hasAll(['id', 'forename', 'name'])
+          &&			request.resource.data.publicInfo.id is string
+          &&			request.resource.data.publicInfo.forename is string
+          &&			request.resource.data.publicInfo.name is string
+          &&			request.resource.data.publicInfo.id == request.auth.uid;
+      }
+      
+      allow read: 
+        	if isUser();
+          
+      allow create:
+      	if 	isOwner()
+        &&	userDataValid();
+      
+      match /friends/{friendId} {
+      
+      	function isCurrentFriend() {
+        	return request.auth.uid == friendId;
+        }
+      
+        function requestedFriendDataValid() {
+					return	request.resource.data.keys().size() == 1
+          &&			request.resource.data.keys().hasAll(['id'])
+          &&			request.resource.data.id 	is string
+          &&			request.resource.data.id == friendId;
+        }
+        
+        function approvedFriendDataValid() {
+        	return	request.resource.data.keys().size() == 1
+          &&			request.resource.data.keys().hasAll(['id'])
+          &&			request.resource.data.id 	is string
+          &&			request.resource.data.id == request.auth.uid;
+        }
+        
+        function isRequested() {
+        	return 	exists(/databases/$(database)/documents/users/$(userId)/friendRequests/$(request.resource.data.id));
+        }
+        
+        function isApproved() {
+        	return 	getAfter(/databases/$(database)/documents/users/$(request.auth.uid)/friends/$(userId)).data.id == userId;
+        }
+      
+      	allow read: 
+        	if 	isOwner();
+      	
+        allow create: 
+        	if	isUser()
+          &&	(		isOwner() 
+          		&& 	isRequested() 
+              &&	requestedFriendDataValid()) 
+          ||	(		!isOwner() 
+            	&& 	isApproved()
+              &&	approvedFriendDataValid())
+    
+          
+          
+        allow delete:
+        	if 	isOwner()
+          ||	isCurrentFriend();
+      }
+      
+      match /friendRequests/{requestFriendId} {
+      
+      	function isCurrentRequestFriend() {
+        	return request.auth.uid == requestFriendId;
+        }
+        
+        function friendRequestDataValid() {
+        	return	request.resource.data.keys().size() == 1
+          &&			request.resource.data.keys().hasAll(['id'])
+          &&			request.resource.data.id 	is string
+          &&			request.resource.data.id == request.auth.uid;
+        }
+        
+        function isAlreadyRequested() {
+        	return exists(/databases/$(database)/documents/users/$(userId)/friendRequests/$(request.auth.uid))
+          ||			exists(/databases/$(database)/documents/users/$(request.auth.uid)/friendRequests/$(userId));
+        }
+      
+      	allow read:
+        	if 	isOwner();
+          
+        allow create:
+        	if	isUser()
+          &&	!isAlreadyRequested()
+          &&	isCurrentRequestFriend()
+          &&	friendRequestDataValid()
+          &&	!isOwner()
+          &&	!isFriend();
+        
+        allow delete:
+        	if 	isCurrentRequestFriend()
+          ||	isOwner();
+      }
+    
+    	match /meetings/{meetingId} {
+      
+      	function meetingDataValid() {
+            return	request.resource.data.keys().size() == 1
+            &&			request.resource.data.keys().hasAll(['info'])
+            &&			request.resource.data.info.keys().size() == 4
+            &&			request.resource.data.info.keys().hasAll(['datetime', 'location', 'activity', 'deadline'])
+            &&			request.resource.data.info.datetime 	is string
+            &&			request.resource.data.info.location 	is string
+            &&			request.resource.data.info.activity 	is string
+            &&			request.resource.data.info.deadline	is timestamp;
+          }
+      	
+        allow read: 
+          if 	isOwner() 
+          || 	isFriend();
+          
+        allow create:
+        	if	isUser()
+          &&	meetingDataValid()
+          &&	isOwner();
+          
+        allow delete: 
+          if 	isOwner();
+      
+        match /subscriber/{subscriberId} {
+        
+        	function isCurrentSubscriber() {
+            return request.auth.uid == subscriberId;
+          }
+        
+          function subscriberDataValid() {
+            return	request.resource.data.keys().size() == 1
+            &&			request.resource.data.keys().hasAll(['id'])
+            &&			request.resource.data.id 	is string
+            &&			request.resource.data.id == subscriberId;
+          }
+          
+          allow read:
+          	if 	isOwner() 
+            || 	isFriend();
+            
+        	allow create: 
+          	if 	isUser()
+            &&	isFriend()
+            &&	isCurrentSubscriber()
+            &&	subscriberDataValid();
+            
+          allow delete:
+          	if	isCurrentSubscriber();
+        }
+      }
+    }
+  }
+}

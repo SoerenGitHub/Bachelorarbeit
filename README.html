@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome file</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h1 id="readme">README</h1>
+<p>In diesem Dokument ist noch einmal alles Wichtige kurz erklärt.</p>
+<h2 id="wichtige-informationen">Wichtige Informationen</h2>
+<p>Für die volle Funktionalität der Progressive Web App muss ein aktueller Browser verwendet werden:  Google Chrome Version 83 oder aktueller.</p>
+<p>Das Projekt enthält Informationen bezüglich der Schnittstellen zu Firebase und Google. Diese können bei Missbrauch Kosten verursachen. Deswegen darf dieses Projekt nicht ohne Absprache an unbeteiligte Personen weitergegeben werden.</p>
+<h2 id="installation">Installation</h2>
+<p>Vorab müssen folgende Softwares installiert werden:</p>
+<p>Java: <a href="https://www.java.com/de/download/">https://www.java.com/de/download/</a><br>
+Node.js: <a href="https://nodejs.org/en/download/">https://nodejs.org/en/download/</a><br>
+Google Chrome: <a href="https://www.google.de/chrome/?brand=CHBD&amp;gclid=EAIaIQobChMIvP69_sOY6gIViKztCh2rVA-0EAAYASAAEgIk3PD_BwE&amp;gclsrc=aw.ds">https://www.google.de/chrome/?brand=CHBD&amp;gclid=EAIaIQobChMIvP69_sOY6gIViKztCh2rVA-0EAAYASAAEgIk3PD_BwE&amp;gclsrc=aw.ds</a></p>
+<p>Angular: <code>npm install -g @angular/cli</code><br>
+Lite-Server: <code>npm i -g lite-server</code><br>
+Firebase-Tools: <code>npm i -g firebase-tools</code><br>
+Lighthouse: <code>npm i -g lighthouse</code><br>
+Webhint: <code>npm i -g hint</code></p>
+<p>Damit alle Packages des Projektes installiert werden:  <code>npm i</code> über das Terminal in den Ordnern:</p>
+<ul>
+<li>“./Quellcode/PWA/”</li>
+<li>“./Quellcode/Firestore Rules/”</li>
+<li>“./Quellcode/Firestore Functions/functions/”</li>
+</ul>
+<h2 id="progressive-web-app">Progressive Web App</h2>
+<h3 id="ausführen">Ausführen</h3>
+<p>Die Progressive Web App kann mit <code>lite-server</code> in dem Ordner “./Ergebnisse/PWA/” ausgeführt werden.</p>
+<blockquote>
+<p>Um die Progressive Web App auf dem Smartphone auszuführen kann ngrok als Tunnel verwendet werden. Mehr Infos: <a href="https://ngrok.com/download">https://ngrok.com/download</a></p>
+</blockquote>
+<h3 id="builden--ausführen">Builden &amp; Ausführen</h3>
+<p>Die Progressive Web App kann mit dem Befehl <code>ng build --prod</code> in dem Ordner “./Quellcode/PWA/” erstellt werden. Anschließend kann im Ordner “./Quellcode/PWA/dist/PWA” der Befehl <code>lite-server</code> zum Ausführen der erstellten Progressive Web App benutzt werden.</p>
+<h2 id="testen">Testen</h2>
+<h3 id="firebase-cloud-firestore-security-rules-testen">Firebase Cloud Firestore Security Rules testen</h3>
+<p>Für das Testen der Sicherheitsregeln muss zunächst der Emulator mit <code>firebase emulators:start</code> im Ordner “./Quellcode/Firestore Rules/” gestartet werden. Während der Emulator aktiv ist, können die Tests mit dem Befehl <code>npm test</code> im selben Ordner, aber in einem anderen Terminal ausgeführt werden.</p>
+<h3 id="pwafrontend-testen">PWA/Frontend testen</h3>
+<p>Das Ausführen der Unit- und Integrationstests kann mit dem Befehl <code>ng test</code> im Projekt-Ordner “./Quellcode/PWA/” über die CLI ausgeführt werden.</p>
+<blockquote>
+<p>Testergebnisse sind auch im Ordner “./Ergebnisse/Test-Ergebnisse/Karma.html” zu finden.</p>
+</blockquote>
+<h2 id="validieren">Validieren</h2>
+<h3 id="lighthouse">Lighthouse</h3>
+<p>Für das Validieren mit Lighthouse, muss die Progressive Web App über den Google Chrome Browser aufgerufen werden. Über die F12-Taste öffnen sich die Entwickler-Tools. Unter dem Tag “Audit” oder “Lighthouse” kann ein Report erstellt werden.</p>
+<blockquote>
+<p>Oder auch mit dem Befehl <code>lighthouse «Domainname»</code> über das Terminal. Validations-Ergebnisse sind auch im Ordner “./Ergebnisse/Validations-Ergebnisse/ErgebnisLighthouse” zu finden.</p>
+</blockquote>
+<h3 id="webhint">Webhint</h3>
+<p>Die Validierung mit Webhint wird im Terminal mit <code>hint «Domainname»</code> ausgeführt. Im befindenden Pfad wird das Ergebnis abgespeichert.</p>
+<blockquote>
+<p>Validations-Ergebnisse sind auch im Ordner “./Ergebnisse/Validations-Ergebnisse/ErgebnisWebhint” zu finden.</p>
+</blockquote>
+</div>
+</body>
+
+</html>
