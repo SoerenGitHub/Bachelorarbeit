@@ -1,0 +1,10 @@
+<app-add-button (click)="showOverlay()"></app-add-button>
+<div class="content">
+  <ul *ngIf="friendRequests"  class="friendlist" [@listAnimation]="friendRequests.length">
+    <li class="frienditem" *ngFor="let requestedFriend of friendRequests"><app-user-request (onApproveFriendRequest)="approveFriendRequest($event)" [requestedUser] = "requestedFriend"></app-user-request></li>
+  </ul>
+  <ul *ngIf="friends"  class="friendlist"  [@listAnimation]="friends.length" id="allfriends">
+    <li *ngFor="let friend of friends" class="frienditem"><app-user (onDeleteFriend)="deleteFriend($event)" [friend] = "friend"></app-user></li>
+  </ul>
+  <app-addfriend [userInfos]="findUser" (onAddNewFriend)="addNewFriend($event)" (onSearch)="search($event)" class="overlay" [isVisible]="isVisible" (isVisibleCallback)="setIsVisible($event)"></app-addfriend>
+</div>

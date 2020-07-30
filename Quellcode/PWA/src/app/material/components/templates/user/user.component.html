@@ -1,0 +1,5 @@
+<div *ngIf="friend && friend?.publicInfo" class="usercard">
+  <img class="userpicture" alt="userpicture" [src]="examplepic">
+  <p class="fullname">{{ friend?.publicInfo.forename}} {{friend?.publicInfo.name}}</p>
+  <button type="button" (click)="deleteFriend()" class="delete-btn"></button>
+</div>

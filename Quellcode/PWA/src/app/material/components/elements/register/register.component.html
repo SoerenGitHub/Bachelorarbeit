@@ -1,0 +1,9 @@
+<h1 class="headline" @fadeIn>Registrieren</h1>
+<form @fadeIn class="form" [formGroup]="authform" (ngSubmit)="authUser()">
+  <app-textbox id="email" class="textfield" [icon]="'SVGs/brief.svg'" [type]="'text'" formControlName="email">E-Mail</app-textbox>
+  <app-textbox id="password" class="textfield" [icon]="'SVGs/password.svg'" [type]="'password'" formControlName="password">Passwort</app-textbox>
+  <app-textbox id="repassword" class="textfield" [icon]="'SVGs/password.svg'" [type]="'password'" formControlName="repassword">Passwort wiederholen</app-textbox>
+  <app-textbox id="forename" class="textfield" [icon]="'SVGs/forename.svg'" [type]="'text'" formControlName="forename">Vorname</app-textbox>
+  <app-textbox id="name" class="textfield" [icon]="'SVGs/name.svg'" [type]="'text'" formControlName="name">Nachname</app-textbox>
+  <button type="submit" id="continue" class="redbtn" [disabled]="!authform.valid">Bestätigen</button>
+</form>

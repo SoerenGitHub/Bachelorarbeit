@@ -1,0 +1,13 @@
+<app-overlay id="overlay" [isVisible]="isVisible">
+  <button id="closebutton"  class="closebtn" (click)="close()" type="button"></button>
+  <h2 class="subheader">Freunde finden</h2>
+  <form class="form" [formGroup]="searchform" (ngSubmit)="searchUser()">
+    <app-textbox id="forename" [icon]="'SVGs/forename.svg'" [type]="'text'" formControlName="forename">Vorname</app-textbox>
+    <app-textbox id="name" [icon]="'SVGs/name.svg'" [type]="'text'" formControlName="name">Nachname</app-textbox>
+    <button id="continue" type="submit" class="redbtn" [disabled]="!searchform.valid">Finden</button>
+  </form>
+  <ul class="userlist" [@listAnimation]="userInfos.length" *ngIf="userInfos" >
+    <li class="useritem"><app-new-user class="newuser" (onAddAsFriend)="addAsFriend($event)" *ngFor="let userInfo of userInfos" [user] = "userInfo"></app-new-user></li>
+  </ul>
+</app-overlay>
+

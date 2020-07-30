@@ -1,0 +1,7 @@
+<header *ngIf="markerposition()" class="headercontainer">
+    <img class="logo" alt="logo" [src]="logo">
+    <h1 class="headertitle">
+      {{(title[markerposition()])}}
+    </h1>
+    <button type="button" id="logout" (click)="logout()" >Logout</button>
+</header>

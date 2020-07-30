@@ -1,0 +1,56 @@
+@import '../../../scss/vars.scss';
+
+.userlist{
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  padding: 10px 8px 0px 8px;
+  list-style: none;
+  list-style-type: none;
+  border-top: 1px solid $gray;
+  margin: 8px
+}
+
+.textfield, .redbtn{
+  margin: 7px;
+}
+
+.subheader{
+  margin-left: 25px;
+  margin-bottom: 7px;
+}
+
+.useritem{
+  flex-grow: 1;
+}
+
+.closebtn{
+  position: absolute;
+  right: 2px;
+  border: 0;
+  background-color: transparent;
+  background-image: url('../../../assets/SVGs/plus_dark.svg');
+  background-size: 60% 60%;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: rotate(45deg);
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.redbtn {
+  width: 100%;
+  margin-left: 0px;
+}
+
+@media (max-height: 290px) {
+  #overlay::ng-deep .card {
+    height: calc(100% - 40px);
+    top: 40px;
+    transform: translateX(-50%)!important;
+    overflow-y: auto;
+  }
+}

@@ -1,0 +1,29 @@
+.friendlist{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: stretch;
+  padding: 10px 10px 10px 10px;
+  position: relative;
+  top: 35px;
+  list-style: none;
+  list-style-type: none;
+  margin: 0;
+}
+
+.frienditem{
+  flex-grow: 1;
+}
+
+.content {
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.content::after {
+  content: "";
+  position: relative;
+  height: 150px;
+  width: 100%;
+  display: block;
+}

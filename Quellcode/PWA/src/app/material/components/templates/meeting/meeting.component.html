@@ -1,0 +1,11 @@
+<div class="meetingcard">
+  <img class="userpicture" alt="userpicture" [src]="examplepic">
+  <p class="fullname">{{ fullname }}</p>
+  <p class="location">{{ location }}</p>
+  <p class="activity">{{ activity }}</p>
+  <img class="subscribericon" alt="subscribericon" [src]="subscriberIcon">
+  <p class="subscriber">{{ subscriber }}</p>
+  <p class="datetime">{{ datetime }}</p>
+  <button (click)="subscribe()" *ngIf="!subscribed && !isOwner"  class="subscribebtn" type="button"></button>
+  <button type="button" *ngIf="isOwner" (click)="deleteMeeting()" class="delete-btn"></button>
+</div>

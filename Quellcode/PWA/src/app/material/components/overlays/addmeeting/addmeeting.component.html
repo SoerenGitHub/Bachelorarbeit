@@ -1,0 +1,11 @@
+<app-overlay id="overlay" [isVisible]="isVisible">
+  <button  class="closebtn" (click)="close()" type="button"></button>
+  <h2 class="subheader">Termin hinzufügen</h2>
+  <form class="form" [formGroup]="meetingform" (ngSubmit)="create()">
+    <app-textbox id="location" [icon]="'SVGs/location.svg'" [type]="'text'" formControlName="location">Wo?</app-textbox>
+    <app-textbox id="activity" [icon]="'SVGs/activity.svg'" [type]="'text'" formControlName="activity">Was?</app-textbox>
+    <app-datepicker id="date" formControlName="date">Welches Datum?</app-datepicker>
+    <app-timepicker id="time" formControlName="time">Welche Zeit?</app-timepicker>
+    <button id="continue" type="submit" class="redbtn" [disabled]="!meetingform.valid">Veröffentlichen</button>
+  </form>
+</app-overlay>

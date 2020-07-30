@@ -1,0 +1,7 @@
+<div class="usercard" *ngIf="user">
+  <img class="userpicture" alt="userpicture" [src]="examplepic">
+  <p class="fullname">{{user.forename}} {{user.name}}</p>
+  <button (click)="addAsFriend()" class="add" type="button"></button>
+</div>
+
+

@@ -1,0 +1,49 @@
+@import '../../../scss/vars.scss';
+.textfield, .redbtn{
+  margin: 7px;
+}
+
+h1{
+  margin-left: 27px;
+  margin-bottom: 0;
+}
+
+.meetingitem{
+  flex-grow: 1;
+}
+
+.subheader{
+  margin-left: 18px;
+  margin-bottom: 7px;
+}
+
+.closebtn{
+  position: absolute;
+  right: 2px;
+  border: 0;
+  background-color: transparent;
+  background-image: url('../../../assets/SVGs/plus_dark.svg');
+  background-size: 60% 60%;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: rotate(45deg);
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.redbtn {
+  width: 100%;
+  margin-left: 0px;
+}
+
+@media (max-height: 370px) {
+  #overlay::ng-deep .card {
+    height: calc(100% - 40px);
+    top: 40px;
+    transform: translateX(-50%)!important;
+    overflow-y: auto;
+  }
+}

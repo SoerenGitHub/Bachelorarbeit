@@ -1,0 +1,30 @@
+@import '../../../scss/vars.scss';
+
+.outer {
+  margin:0 auto;
+  position: relative;
+  right: 30px;
+}
+.floatcontainer {
+  float: right;
+  width: 50px;
+}
+
+.addbtn{
+  background-image: url("../../../assets/SVGs/plus_dark.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: white;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  border: 0.3px solid $light-gray;
+  box-shadow: 0px 6px 5px gray;
+  position: fixed;
+  margin-right: 20px;
+  outline: none;
+  cursor: pointer;
+  animation: ease-in 1s;
+  bottom: 60px;
+  z-index: 1;
+}

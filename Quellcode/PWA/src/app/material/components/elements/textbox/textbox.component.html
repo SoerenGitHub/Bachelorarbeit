@@ -1,0 +1,3 @@
+<img *ngIf="iconSRC"  class="txt-icon" [src]="iconSRC" alt="textbox icon">
+<label #label (click)="onClick()" class="label"><ng-content></ng-content></label>
+<input #textbox autocomplete="{{autocomplete}}" type="{{type}}" class="textfield" (focus)="onClick()" (blur)="onBlur()" (input)="onInput()" [formControl]="input">

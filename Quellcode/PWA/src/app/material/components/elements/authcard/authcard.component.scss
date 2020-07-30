@@ -1,0 +1,59 @@
+@import '../../../scss/vars.scss';
+
+.card{
+  padding: 0;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 40px auto;
+  margin: 0;
+  background: white;
+  position: fixed;
+  overflow: hidden;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+@media (min-width: 400px) {
+  .card {
+    width: 400px;
+  }
+}
+
+@media (max-width: 400px) {
+  .card {
+    width: 100%;
+  }
+}
+
+.cardform{
+  padding: 8px;
+  justify-self: center;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  width: 100%;
+}
+
+.switchcard{
+  border: 0;
+  background: white;
+  box-shadow: 0 4px 3px $light-gray;
+  cursor: pointer;
+  outline:none;
+  text-align: start;
+}
+
+#loginbtn{
+  grid-row: 1;
+  grid-column: 1;
+}
+
+.selected{
+  background-color: $red;
+  color: white;
+  transition: all ease-in 200ms;
+}
+

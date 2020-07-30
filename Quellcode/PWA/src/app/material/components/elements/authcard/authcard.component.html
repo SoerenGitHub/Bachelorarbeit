@@ -1,0 +1,8 @@
+<div class="card">
+  <button [class.selected]="comp ===0" (click)="loginbtnClick()" type="button" id="loginbtn" class="switchcard">Login</button>
+  <button [class.selected]="comp===1" (click)="registerbtnClick()" type="button" id="registerbtn" class="switchcard">Registrieren</button>
+  <div class="cardform">
+    <app-login [onSubmit]="onLogin" *ngIf="comp===0" ></app-login>
+    <app-register [onSubmit]="onRegister" *ngIf="comp===1"></app-register>
+  </div>
+</div>

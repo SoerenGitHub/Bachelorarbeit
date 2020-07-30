@@ -1,0 +1,68 @@
+@import '../../../scss/vars.scss';
+
+.menu{
+  background: $gray;
+  position: fixed;
+  bottom: 0;
+  padding: 0;
+  width: 100%;
+  left: 0;
+  height: 48px;
+  overflow: visible;
+  z-index: 4;
+}
+
+.menumarker{
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  width: 100px;
+  top: -10px;
+  z-index: 1;
+  transition: all ease-in 400ms;
+}
+
+.markerleft{
+  left: calc(25% - 50px);
+}
+
+.markerright{
+  left: calc(75% - 55px);
+}
+
+.menulist{
+  display: flex;
+  z-index: 2;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  list-style: none;
+  height: 48px;
+  margin: 0;
+  padding: 0;
+  justify-content: space-around;
+}
+
+.menuitem{
+  position: relative;
+  margin: auto;
+  cursor: pointer;
+  height: 48px;
+  width: 65px;
+  border: 0;
+  background: transparent;
+  outline: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#meetings{
+  background-image: url("../../../assets/SVGs/menu_overview.svg");
+  background-repeat: no-repeat;
+}
+
+#friends{
+  background-image: url("../../../assets/SVGs/menu_friends.svg");
+  background-repeat: no-repeat;
+}

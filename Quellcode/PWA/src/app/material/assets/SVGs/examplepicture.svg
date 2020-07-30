@@ -1,0 +1,11 @@
+<svg id="examplepicture" xmlns="http://www.w3.org/2000/svg" width="76" height="107" viewBox="0 0 76 107">
+  <g id="background" fill="#505050" stroke="#f79999" stroke-width="1">
+    <path d="M4,0H76a0,0,0,0,1,0,0V107a0,0,0,0,1,0,0H4a4,4,0,0,1-4-4V4A4,4,0,0,1,4,0Z" stroke="none"/>
+    <path d="M4,.5H75a.5.5,0,0,1,.5.5V106a.5.5,0,0,1-.5.5H4A3.5,3.5,0,0,1,.5,103V4A3.5,3.5,0,0,1,4,.5Z" fill="none"/>
+  </g>
+  <path id="background-2" data-name="background" d="M4,0H37a0,0,0,0,1,0,0V105a0,0,0,0,1,0,0H4a4,4,0,0,1-4-4V4A4,4,0,0,1,4,0Z" transform="translate(1 1)" fill="#474747"/>
+  <g id="person" transform="translate(-40 -53)">
+    <circle id="head" cx="6.5" cy="6.5" r="6.5" transform="translate(72 92)" fill="#fff"/>
+    <path id="koerper" d="M13.725,17.275c-6.019,0-11.278-.452-13.725-1.18-.894-.266-1.359-.641-1.383-1.115-.1-1.988,7.6-5.146,7.675-5.178H8.4a6.5,6.5,0,0,0,11.2,0h1.561c.078.032,7.772,3.2,7.675,5.178-.023.474-.488.849-1.383,1.115C25,16.822,19.744,17.275,13.725,17.275Z" transform="translate(64.503 94)" fill="#fff"/>
+  </g>
+</svg>

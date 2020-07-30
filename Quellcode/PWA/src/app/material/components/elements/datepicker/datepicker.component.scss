@@ -1,0 +1,48 @@
+@import '../../../scss/vars.scss';
+
+.textfield{
+  position: relative;
+  background: transparent;
+  outline: none;
+  padding: 10px 5px 0px 39px;
+  color: $gray;
+  transition: all 0.7s;
+  border: 0;
+  height: 27px;
+  border: 0.5px solid $light-gray;
+  margin: 5px 0 5px 0;
+  overflow: hidden;
+  min-width: 80px;
+  border-radius: 2px;
+  width: calc(100% - 46px);
+  cursor: not-allowed;
+}
+
+.label {
+  color: $light-text;
+  position: absolute;
+  text-align: center;
+  transform: translate(40px, 14px);
+  transition: all 0.4s;
+  cursor: not-allowed;
+  width: calc(100% - 80px);
+  white-space: nowrap;
+  overflow: hidden;
+  min-width: 85px;
+  text-align: start;
+}
+
+.picker {
+  position: absolute;
+  left: 17px;
+  margin-top: 5px;
+  z-index: 2;
+}
+
+::ng-deep .mat-datepicker-toggle{
+  color:$red;
+}
+
+::ng-deep .mat-calendar-body-selected{
+  background: $red;
+}

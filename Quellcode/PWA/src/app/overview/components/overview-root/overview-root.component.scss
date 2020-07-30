@@ -1,0 +1,22 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  align-items: stretch;
+  top: 0;
+}
+
+.friends{
+  box-shadow: 3px 4px 6px;
+  flex: 1;
+  max-width: 300px;
+  box-shadow: 4px 8px 3px gray;
+  z-index: 2;
+  height: 100%;
+}
+
+.meetings {
+  flex: 2;
+}

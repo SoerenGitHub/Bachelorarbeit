@@ -1,0 +1,7 @@
+<h1 class="headline" @fadeIn>Login</h1>
+<form @fadeIn class="form" [formGroup]="authform" (ngSubmit)="authUser()">
+  <app-textbox id="email" [icon]="'SVGs/brief.svg'" class="textfield" formControlName="email">E-Mail</app-textbox>
+  <app-textbox id="password" [icon]="'SVGs/password.svg'" class="textfield" [type]="'password'" formControlName="password">Passwort</app-textbox>
+  <button type="submit" id="continue" class="redbtn" [disabled]="!authform.valid">Bestätigen</button>
+</form>
+

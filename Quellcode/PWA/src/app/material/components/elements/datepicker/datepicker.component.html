@@ -1,0 +1,7 @@
+<label #label (click)="onClick()" class="label"><ng-content></ng-content></label>
+<input #textbox (blur)="onBlur()" (input)="onInput()" [formControl]="input" class="textfield" [matDatepicker]="picker" readonly>
+<mat-datepicker-toggle class="picker" matSuffix [for]="picker"></mat-datepicker-toggle>
+<mat-datepicker (closed)="determineDate()" class="picker" #picker></mat-datepicker>
+
+
+

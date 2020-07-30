@@ -1,0 +1,8 @@
+<div *ngIf="markerposition() > -1"  class="menu">
+  <img [class.markerleft]="markerposition()==0" [class.markerright]="markerposition()==1" class="menumarker" [src]="marker" alt="marker">
+  <ul class="menulist">
+    <li><button (click)="meetingsClick()" type="button" id="meetings" class="menuitem" alt="overview"></button></li>
+    <li><button (click)="friendsClick()" type="button" id="friends" class="menuitem" alt="friends"></button></li>
+  </ul>
+</div>
+

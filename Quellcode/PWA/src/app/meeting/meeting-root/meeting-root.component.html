@@ -1,0 +1,10 @@
+<app-add-button (click)="showOverlay()"></app-add-button>
+<div class="content">
+  <ul *ngIf="myMeetings && (myMeetings.length > 0)"  [@listAnimation]="myMeetings.length" class="meetinglist" id="own-meetings">
+    <li class="meetingelement" *ngFor="let myMeeting of myMeetings"><app-meeting [userId]="id" class="meetingitem" [meeting] = "myMeeting" (onDelete)="deleteMeeting($event)" ></app-meeting></li>
+  </ul>
+  <ul *ngIf="meetings && (meetings.length > 0)"  [@listAnimation]="meetings.length" class="meetinglist" id="friend-meetings">
+    <li class="meetingelement" *ngFor="let meeting of meetings"><app-meeting (onSubscribe)="subscribeToMeeting($event)" [userId]="id" class="meetingitem"  [meeting] = "meeting"></app-meeting></li>
+  </ul>
+  <app-addmeeting (onCreate)="createMeeting($event)" class="overlay" [isVisible]="isVisible" (isVisibleCallback)="setIsVisible($event)"></app-addmeeting>
+</div>

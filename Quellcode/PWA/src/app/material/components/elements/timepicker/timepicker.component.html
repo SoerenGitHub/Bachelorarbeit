@@ -1,0 +1,5 @@
+<label #label class="label"><ng-content></ng-content></label>
+<input #textbox class="textfield" [ngxTimepicker]="timepicker" [formControl]="input" [disableClick]="true" [format]=24 (input)="onInput()" readonly>
+<ngx-material-timepicker-toggle class="picker" [for]="timepicker"></ngx-material-timepicker-toggle>
+<ngx-material-timepicker (click)="onClick()" (closed)="determineTime()" [format]=24 #timepicker></ngx-material-timepicker>
+

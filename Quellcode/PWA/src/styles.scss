@@ -1,0 +1,64 @@
+@import './app/scss/vars.scss';
+
+html, body{
+  padding: 0;
+  margin: 0;
+  color: $gray;
+}
+
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  letter-spacing: 0.01em;
+}
+
+
+.redbtn{
+  background: $red;
+  border: 2px solid $red;
+  padding: 7px;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px $light-gray;
+  color: white;
+  font-size: large;
+  cursor: pointer;
+  outline:none;
+  transition: all ease-in 250ms;
+}
+
+.redbtn:hover{
+  color: $red;
+  background: white;
+}
+
+.form{
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 0 20px 8px 20px;
+}
+
+.wrapper{
+  height: 100%;
+  display: block;
+  margin: auto;
+}
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+.smalllogo{
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 5px;
+  width: 35px;
+}
+
+.failmessage{
+  color: $red;
+  border: 2px solid $red;
+  border-radius: 4px;
+  background: $light-red;
+  text-align: center;
+  padding: 4px;
+}
+
+
